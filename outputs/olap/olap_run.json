@@ -1,0 +1,625 @@
+{
+  "metadata": {
+    "database": "data/warehouse/movie_preference.sqlite",
+    "database_bytes": 5700124672,
+    "python_version": "3.14.3",
+    "sqlite_version": "3.50.4",
+    "operating_system": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "machine_architecture": "arm64",
+    "timing_method": "One sequential full execution per query on one read-only SQLite connection; perf_counter around execute plus fetchall. Default SQLite page cache and OS file cache; no cache flush or warmup; query order is reported."
+  },
+  "query_order": [
+    "Q1_year_month_genre",
+    "Q2_genre_by_user_activity_band",
+    "Q3_top_bottom_genres_by_year",
+    "Q4_tag_applications_by_tag_genre_year",
+    "Q5_country_release_decade",
+    "Q5_coverage"
+  ],
+  "results": {
+    "Q1_year_month_genre": {
+      "elapsed_seconds": 162.934896,
+      "result_rows": 4792,
+      "preview": [
+        {
+          "period_grain": "month",
+          "year": 1995,
+          "month": 1,
+          "genre": "Comedy",
+          "rating_count": 2,
+          "average_rating": 3.0
+        },
+        {
+          "period_grain": "month",
+          "year": 1995,
+          "month": 1,
+          "genre": "Crime",
+          "rating_count": 2,
+          "average_rating": 3.0
+        },
+        {
+          "period_grain": "month",
+          "year": 1995,
+          "month": 1,
+          "genre": "Drama",
+          "rating_count": 1,
+          "average_rating": 4.0
+        },
+        {
+          "period_grain": "month",
+          "year": 1995,
+          "month": 1,
+          "genre": "Fantasy",
+          "rating_count": 1,
+          "average_rating": 4.0
+        },
+        {
+          "period_grain": "month",
+          "year": 1995,
+          "month": 1,
+          "genre": "Mystery",
+          "rating_count": 1,
+          "average_rating": 5.0
+        },
+        {
+          "period_grain": "month",
+          "year": 1995,
+          "month": 1,
+          "genre": "Romance",
+          "rating_count": 1,
+          "average_rating": 4.0
+        },
+        {
+          "period_grain": "month",
+          "year": 1995,
+          "month": 1,
+          "genre": "Thriller",
+          "rating_count": 2,
+          "average_rating": 4.0
+        },
+        {
+          "period_grain": "year",
+          "year": 1995,
+          "month": null,
+          "genre": "Comedy",
+          "rating_count": 2,
+          "average_rating": 3.0
+        },
+        {
+          "period_grain": "year",
+          "year": 1995,
+          "month": null,
+          "genre": "Crime",
+          "rating_count": 2,
+          "average_rating": 3.0
+        },
+        {
+          "period_grain": "year",
+          "year": 1995,
+          "month": null,
+          "genre": "Drama",
+          "rating_count": 1,
+          "average_rating": 4.0
+        },
+        {
+          "period_grain": "year",
+          "year": 1995,
+          "month": null,
+          "genre": "Fantasy",
+          "rating_count": 1,
+          "average_rating": 4.0
+        },
+        {
+          "period_grain": "year",
+          "year": 1995,
+          "month": null,
+          "genre": "Mystery",
+          "rating_count": 1,
+          "average_rating": 5.0
+        }
+      ],
+      "query_plan": [
+        "MERGE (UNION ALL)",
+        "LEFT",
+        "CO-ROUTINE monthly",
+        "SCAN r",
+        "SEARCH d USING INTEGER PRIMARY KEY (rowid=?)",
+        "SEARCH b USING COVERING INDEX sqlite_autoindex_bridge_movie_genre_1 (movie_key=?)",
+        "SEARCH g USING INTEGER PRIMARY KEY (rowid=?)",
+        "USE TEMP B-TREE FOR GROUP BY",
+        "SCAN monthly",
+        "USE TEMP B-TREE FOR ORDER BY",
+        "RIGHT",
+        "CO-ROUTINE yearly",
+        "SCAN r",
+        "SEARCH d USING INTEGER PRIMARY KEY (rowid=?)",
+        "SEARCH b USING COVERING INDEX sqlite_autoindex_bridge_movie_genre_1 (movie_key=?)",
+        "SEARCH g USING INTEGER PRIMARY KEY (rowid=?)",
+        "USE TEMP B-TREE FOR GROUP BY",
+        "SCAN yearly",
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    },
+    "Q2_genre_by_user_activity_band": {
+      "elapsed_seconds": 25.889809,
+      "result_rows": 20,
+      "preview": [
+        {
+          "genre": "Drama",
+          "all_rating_events": 1770784,
+          "low_events": 352692,
+          "low_average": 3.8896955417191204,
+          "medium_events": 797326,
+          "medium_average": 3.798169130318088,
+          "high_events": 620766,
+          "high_average": 3.485094222299546
+        },
+        {
+          "genre": "Comedy",
+          "all_rating_events": 1308367,
+          "low_events": 250776,
+          "low_average": 3.6198539732669794,
+          "medium_events": 590893,
+          "medium_average": 3.576666164601713,
+          "high_events": 466698,
+          "high_average": 3.221990452069647
+        },
+        {
+          "genre": "Action",
+          "all_rating_events": 1169360,
+          "low_events": 232970,
+          "low_average": 3.7590140361419926,
+          "medium_events": 557039,
+          "medium_average": 3.642078920865505,
+          "high_events": 379351,
+          "high_average": 3.2666435570223884
+        },
+        {
+          "genre": "Thriller",
+          "all_rating_events": 1066357,
+          "low_events": 203287,
+          "low_average": 3.7864472396168964,
+          "medium_events": 490969,
+          "medium_average": 3.688454871896189,
+          "high_events": 372101,
+          "high_average": 3.322439337706698
+        },
+        {
+          "genre": "Adventure",
+          "all_rating_events": 907718,
+          "low_events": 189607,
+          "low_average": 3.7633658040051263,
+          "medium_events": 447345,
+          "medium_average": 3.6498273144888174,
+          "high_events": 270766,
+          "high_average": 3.3003072763936387
+        },
+        {
+          "genre": "Sci-Fi",
+          "all_rating_events": 692426,
+          "low_events": 137782,
+          "low_average": 3.7329331843056424,
+          "medium_events": 337717,
+          "medium_average": 3.644834284326818,
+          "high_events": 216927,
+          "high_average": 3.3010736330655015
+        },
+        {
+          "genre": "Crime",
+          "all_rating_events": 692365,
+          "low_events": 147226,
+          "low_average": 3.966541235923003,
+          "medium_events": 325743,
+          "medium_average": 3.833606554860734,
+          "high_events": 219396,
+          "high_average": 3.462041240496636
+        },
+        {
+          "genre": "Romance",
+          "all_rating_events": 651326,
+          "low_events": 131470,
+          "low_average": 3.7388757891534192,
+          "medium_events": 300470,
+          "medium_average": 3.642420208340267,
+          "high_events": 219386,
+          "high_average": 3.322067041652612
+        },
+        {
+          "genre": "Fantasy",
+          "all_rating_events": 479092,
+          "low_events": 97519,
+          "low_average": 3.7709164367969317,
+          "medium_events": 231723,
+          "medium_average": 3.6614794388127203,
+          "high_events": 149850,
+          "high_average": 3.2796596596596594
+        },
+        {
+          "genre": "Mystery",
+          "all_rating_events": 354881,
+          "low_events": 71006,
+          "low_average": 3.8953679970706703,
+          "medium_events": 166989,
+          "medium_average": 3.813203264885711,
+          "high_events": 116886,
+          "high_average": 3.4738677001522853
+        },
+        {
+          "genre": "Children",
+          "all_rating_events": 325055,
+          "low_events": 69935,
+          "low_average": 3.584321155358547,
+          "medium_events": 155953,
+          "medium_average": 3.579982430604092,
+          "high_events": 99167,
+          "high_average": 3.233288291467928
+        },
+        {
+          "genre": "Horror",
+          "all_rating_events": 294061,
+          "low_events": 50317,
+          "low_average": 3.4885028916668324,
+          "medium_events": 120758,
+          "medium_average": 3.508997333509995,
+          "high_events": 122986,
+          "high_average": 3.1174320654383427
+        }
+      ],
+      "query_plan": [
+        "CO-ROUTINE user_activity",
+        "SCAN fact_rating USING COVERING INDEX ix_fact_rating_user_date",
+        "SCAN user_activity",
+        "SEARCH r USING INDEX ix_fact_rating_user_date (user_key=?)",
+        "SEARCH d USING INTEGER PRIMARY KEY (rowid=?)",
+        "SEARCH b USING COVERING INDEX sqlite_autoindex_bridge_movie_genre_1 (movie_key=?)",
+        "SEARCH g USING INTEGER PRIMARY KEY (rowid=?)",
+        "SEARCH g USING INTEGER PRIMARY KEY (rowid=?)",
+        "USE TEMP B-TREE FOR GROUP BY",
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    },
+    "Q3_top_bottom_genres_by_year": {
+      "elapsed_seconds": 81.855062,
+      "result_rows": 40,
+      "preview": [
+        {
+          "year": 1996,
+          "position": "highest",
+          "genre": "War",
+          "rating_count": 84522,
+          "average_rating": 3.9558339840514893
+        },
+        {
+          "year": 1996,
+          "position": "lowest",
+          "genre": "Comedy",
+          "rating_count": 602316,
+          "average_rating": 3.4174469879598086
+        },
+        {
+          "year": 1997,
+          "position": "highest",
+          "genre": "War",
+          "rating_count": 31827,
+          "average_rating": 3.9587771389072173
+        },
+        {
+          "year": 1997,
+          "position": "lowest",
+          "genre": "Horror",
+          "rating_count": 33585,
+          "average_rating": 3.4457049277951466
+        },
+        {
+          "year": 1998,
+          "position": "highest",
+          "genre": "IMAX",
+          "rating_count": 2084,
+          "average_rating": 3.946257197696737
+        },
+        {
+          "year": 1998,
+          "position": "lowest",
+          "genre": "Horror",
+          "rating_count": 23748,
+          "average_rating": 3.1499494694290044
+        },
+        {
+          "year": 1999,
+          "position": "highest",
+          "genre": "Film-Noir",
+          "rating_count": 21082,
+          "average_rating": 4.144910350061664
+        },
+        {
+          "year": 1999,
+          "position": "lowest",
+          "genre": "Horror",
+          "rating_count": 84402,
+          "average_rating": 3.298535579725599
+        },
+        {
+          "year": 2000,
+          "position": "highest",
+          "genre": "Film-Noir",
+          "rating_count": 29771,
+          "average_rating": 4.103792281078903
+        },
+        {
+          "year": 2000,
+          "position": "lowest",
+          "genre": "Horror",
+          "rating_count": 162338,
+          "average_rating": 3.2667705651172247
+        },
+        {
+          "year": 2001,
+          "position": "highest",
+          "genre": "Film-Noir",
+          "rating_count": 14359,
+          "average_rating": 4.0566891844835995
+        },
+        {
+          "year": 2001,
+          "position": "lowest",
+          "genre": "Horror",
+          "rating_count": 100383,
+          "average_rating": 3.237839076337627
+        }
+      ],
+      "query_plan": [
+        "MERGE (UNION ALL)",
+        "LEFT",
+        "MATERIALIZE ranked",
+        "CO-ROUTINE (subquery-5)",
+        "CO-ROUTINE (subquery-6)",
+        "MATERIALIZE genre_year",
+        "SCAN r",
+        "SEARCH d USING INTEGER PRIMARY KEY (rowid=?)",
+        "SEARCH b USING COVERING INDEX sqlite_autoindex_bridge_movie_genre_1 (movie_key=?)",
+        "SEARCH g USING INTEGER PRIMARY KEY (rowid=?)",
+        "USE TEMP B-TREE FOR GROUP BY",
+        "SCAN genre_year",
+        "USE TEMP B-TREE FOR ORDER BY",
+        "SCAN (subquery-6)",
+        "USE TEMP B-TREE FOR ORDER BY",
+        "SCAN (subquery-5)",
+        "SCAN ranked",
+        "USE TEMP B-TREE FOR ORDER BY",
+        "RIGHT",
+        "SCAN ranked",
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    },
+    "Q4_tag_applications_by_tag_genre_year": {
+      "elapsed_seconds": 2.267789,
+      "result_rows": 324427,
+      "preview": [
+        {
+          "year": 2014,
+          "user_tag": "Nudity (Topless)",
+          "genre": "Drama",
+          "tag_applications": 763
+        },
+        {
+          "year": 2009,
+          "user_tag": "Sci-Fi",
+          "genre": "Sci-Fi",
+          "tag_applications": 613
+        },
+        {
+          "year": 2011,
+          "user_tag": "Sci-Fi",
+          "genre": "Sci-Fi",
+          "tag_applications": 547
+        },
+        {
+          "year": 2011,
+          "user_tag": "COMEDY",
+          "genre": "Comedy",
+          "tag_applications": 540
+        },
+        {
+          "year": 2010,
+          "user_tag": "Sci-Fi",
+          "genre": "Sci-Fi",
+          "tag_applications": 529
+        },
+        {
+          "year": 2009,
+          "user_tag": "COMEDY",
+          "genre": "Comedy",
+          "tag_applications": 519
+        },
+        {
+          "year": 2009,
+          "user_tag": "Based On A Book",
+          "genre": "Drama",
+          "tag_applications": 499
+        },
+        {
+          "year": 2012,
+          "user_tag": "Sci-Fi",
+          "genre": "Sci-Fi",
+          "tag_applications": 484
+        },
+        {
+          "year": 2013,
+          "user_tag": "ACTION",
+          "genre": "Action",
+          "tag_applications": 473
+        },
+        {
+          "year": 2013,
+          "user_tag": "COMEDY",
+          "genre": "Comedy",
+          "tag_applications": 463
+        },
+        {
+          "year": 2009,
+          "user_tag": "ACTION",
+          "genre": "Action",
+          "tag_applications": 420
+        },
+        {
+          "year": 2012,
+          "user_tag": "ACTION",
+          "genre": "Action",
+          "tag_applications": 407
+        }
+      ],
+      "query_plan": [
+        "SCAN f",
+        "SEARCH d USING INTEGER PRIMARY KEY (rowid=?)",
+        "SEARCH t USING INTEGER PRIMARY KEY (rowid=?)",
+        "SEARCH b USING COVERING INDEX sqlite_autoindex_bridge_movie_genre_1 (movie_key=?)",
+        "SEARCH g USING INTEGER PRIMARY KEY (rowid=?)",
+        "USE TEMP B-TREE FOR GROUP BY",
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    },
+    "Q5_country_release_decade": {
+      "elapsed_seconds": 134.936921,
+      "result_rows": 590,
+      "preview": [
+        {
+          "wikidata_country": "United States",
+          "release_decade": "1990s",
+          "movie_count": 2842,
+          "rating_count": 8229035,
+          "average_rating": 3.4210084779077983
+        },
+        {
+          "wikidata_country": "United States",
+          "release_decade": "2000s",
+          "movie_count": 4237,
+          "rating_count": 4252168,
+          "average_rating": 3.461539384144747
+        },
+        {
+          "wikidata_country": "United States",
+          "release_decade": "1980s",
+          "movie_count": 1702,
+          "rating_count": 2652769,
+          "average_rating": 3.519812505348185
+        },
+        {
+          "wikidata_country": "United States",
+          "release_decade": "1970s",
+          "movie_count": 1050,
+          "rating_count": 1000884,
+          "average_rating": 3.7624864619676206
+        },
+        {
+          "wikidata_country": "United Kingdom",
+          "release_decade": "1990s",
+          "movie_count": 492,
+          "rating_count": 949061,
+          "average_rating": 3.5740047267773094
+        },
+        {
+          "wikidata_country": "United Kingdom",
+          "release_decade": "2000s",
+          "movie_count": 993,
+          "rating_count": 913445,
+          "average_rating": 3.617835775552989
+        },
+        {
+          "wikidata_country": "Germany",
+          "release_decade": "2000s",
+          "movie_count": 697,
+          "rating_count": 631372,
+          "average_rating": 3.5012528271763714
+        },
+        {
+          "wikidata_country": "United States",
+          "release_decade": "1960s",
+          "movie_count": 828,
+          "rating_count": 538049,
+          "average_rating": 3.814370995950183
+        },
+        {
+          "wikidata_country": "France",
+          "release_decade": "1990s",
+          "movie_count": 468,
+          "rating_count": 508638,
+          "average_rating": 3.571759286565298
+        },
+        {
+          "wikidata_country": "United States",
+          "release_decade": "2010s",
+          "movie_count": 2515,
+          "rating_count": 440271,
+          "average_rating": 3.550970879299341
+        },
+        {
+          "wikidata_country": "United Kingdom",
+          "release_decade": "1980s",
+          "movie_count": 300,
+          "rating_count": 429016,
+          "average_rating": 3.63433881253846
+        },
+        {
+          "wikidata_country": "United States",
+          "release_decade": "1950s",
+          "movie_count": 987,
+          "rating_count": 404490,
+          "average_rating": 3.8522299686024377
+        }
+      ],
+      "query_plan": [
+        "MATERIALIZE rating_by_movie",
+        "SCAN fact_rating USING INDEX ix_fact_rating_movie_date",
+        "SCAN m USING INDEX ux_dim_movie_current",
+        "BLOOM FILTER ON r (movie_key=?)",
+        "SEARCH r USING AUTOMATIC COVERING INDEX (movie_key=?) LEFT-JOIN",
+        "SEARCH bc USING COVERING INDEX sqlite_autoindex_bridge_movie_country_1 (movie_key=?) LEFT-JOIN",
+        "SEARCH c USING INTEGER PRIMARY KEY (rowid=?) LEFT-JOIN",
+        "USE TEMP B-TREE FOR GROUP BY",
+        "USE TEMP B-TREE FOR count(DISTINCT)",
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    },
+    "Q5_coverage": {
+      "elapsed_seconds": 0.798715,
+      "result_rows": 3,
+      "preview": [
+        {
+          "coverage_group": "matched with country",
+          "movies": 26232,
+          "movies_with_ratings": 25743,
+          "rating_events": 19982080
+        },
+        {
+          "coverage_group": "matched without country",
+          "movies": 31,
+          "movies_with_ratings": 29,
+          "rating_events": 257
+        },
+        {
+          "coverage_group": "no exact Wikidata match (unmatched or ambiguous)",
+          "movies": 1015,
+          "movies_with_ratings": 972,
+          "rating_events": 17926
+        }
+      ],
+      "query_plan": [
+        "MATERIALIZE r",
+        "SCAN fact_rating USING COVERING INDEX ix_fact_rating_movie_date",
+        "SCAN m USING INDEX ux_dim_movie_current",
+        "BLOOM FILTER ON r (movie_key=?)",
+        "SEARCH r USING AUTOMATIC COVERING INDEX (movie_key=?) LEFT-JOIN",
+        "USE TEMP B-TREE FOR GROUP BY",
+        "CORRELATED SCALAR SUBQUERY 1",
+        "SEARCH bc USING COVERING INDEX sqlite_autoindex_bridge_movie_country_1 (movie_key=?)",
+        "CORRELATED SCALAR SUBQUERY 1",
+        "SEARCH bc USING COVERING INDEX sqlite_autoindex_bridge_movie_country_1 (movie_key=?)",
+        "USE TEMP B-TREE FOR count(DISTINCT)",
+        "USE TEMP B-TREE FOR count(DISTINCT)",
+        "USE TEMP B-TREE FOR ORDER BY"
+      ]
+    }
+  },
+  "executed_at_utc": "2026-09-28T15:37:45.783820+00:00",
+  "execution_method": "Notebook code cells executed sequentially in one Python 3.14 process because the sandbox blocked starting a separate local Jupyter kernel; query timings were measured inside the notebook cells."
+}

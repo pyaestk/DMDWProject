@@ -1,0 +1,263 @@
+{
+  "metadata": {
+    "started_at_utc": "2026-09-28T16:09:20.227728+00:00",
+    "database": "data/warehouse/movie_preference.sqlite",
+    "database_bytes": 5700124672,
+    "python": "3.14.3",
+    "sqlite": "3.50.4",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "scikit_learn": "1.8.0",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "machine_architecture": "arm64",
+    "random_seed": 544,
+    "connection_mode": "read-only; query_only enabled",
+    "completed_at_utc": "2026-09-28T16:17:56.435154+00:00"
+  },
+  "warehouse_counts": {
+    "rating_events": 20000263,
+    "accepted_tag_events": 465557,
+    "genome_score_rows": 11709768,
+    "users": 138493,
+    "current_movies": 27278,
+    "movielens_genres": 20,
+    "quality_issues": 1022
+  },
+  "etl_audit": [
+    {
+      "table_name": "Wikidata",
+      "source_rows": 27278,
+      "accepted_rows": 27278,
+      "rejected_rows": 0,
+      "duplicate_rows": 1,
+      "unmatched_rows": 1015,
+      "loaded_rows": 26263
+    },
+    {
+      "table_name": "genome-scores.csv",
+      "source_rows": 11709768,
+      "accepted_rows": 11709768,
+      "rejected_rows": 0,
+      "duplicate_rows": 0,
+      "unmatched_rows": 0,
+      "loaded_rows": 11709768
+    },
+    {
+      "table_name": "genome-tags.csv",
+      "source_rows": 1128,
+      "accepted_rows": 1128,
+      "rejected_rows": 0,
+      "duplicate_rows": 0,
+      "unmatched_rows": 0,
+      "loaded_rows": 1128
+    },
+    {
+      "table_name": "links.csv",
+      "source_rows": 27278,
+      "accepted_rows": 27278,
+      "rejected_rows": 0,
+      "duplicate_rows": 0,
+      "unmatched_rows": 0,
+      "loaded_rows": 27278
+    },
+    {
+      "table_name": "movies.csv",
+      "source_rows": 27278,
+      "accepted_rows": 27278,
+      "rejected_rows": 0,
+      "duplicate_rows": 0,
+      "unmatched_rows": 0,
+      "loaded_rows": 27278
+    },
+    {
+      "table_name": "ratings.csv",
+      "source_rows": 20000263,
+      "accepted_rows": 20000263,
+      "rejected_rows": 0,
+      "duplicate_rows": 0,
+      "unmatched_rows": 0,
+      "loaded_rows": 20000263
+    },
+    {
+      "table_name": "tags.csv",
+      "source_rows": 465564,
+      "accepted_rows": 465557,
+      "rejected_rows": 7,
+      "duplicate_rows": 0,
+      "unmatched_rows": 0,
+      "loaded_rows": 465557
+    }
+  ],
+  "metadata_coverage": {
+    "catalog_movies": 27278,
+    "exact_wikidata_matches": 26263,
+    "with_release_date": 26003,
+    "with_single_original_language": 23372,
+    "movies_with_country": 26232,
+    "movies_with_language": 25317
+  },
+  "interaction_coverage": {
+    "movies_with_ratings": 26744,
+    "movies_with_user_tags": 19545,
+    "movies_with_genome_scores": 10381,
+    "users_with_user_tags": 7800
+  },
+  "eda": {
+    "rating_distribution": {
+      "0.5": 239125,
+      "1.0": 680732,
+      "1.5": 279252,
+      "2.0": 1430997,
+      "2.5": 883398,
+      "3.0": 4291193,
+      "3.5": 2200156,
+      "4.0": 5561926,
+      "4.5": 1534824,
+      "5.0": 2898660
+    },
+    "user_rating_count_quantiles": {
+      "p00": 20.0,
+      "p25": 35.0,
+      "p50": 68.0,
+      "p75": 155.0,
+      "p90": 334.0,
+      "p95": 520.0,
+      "p99": 1113.0799999999872,
+      "p100": 9254.0
+    },
+    "movie_rating_count_quantiles": {
+      "p00": 1.0,
+      "p25": 3.0,
+      "p50": 18.0,
+      "p75": 205.0,
+      "p90": 1305.7000000000007,
+      "p95": 3612.94999999999,
+      "p99": 14388.689999999995,
+      "p100": 67310.0
+    },
+    "rating_years": {
+      "1995": 4,
+      "1996": 1612609,
+      "1997": 700982,
+      "1998": 308070,
+      "1999": 1198384,
+      "2000": 1953659,
+      "2001": 1186125,
+      "2002": 869719,
+      "2003": 1035878,
+      "2004": 1170049,
+      "2005": 1803158,
+      "2006": 1171836,
+      "2007": 1053430,
+      "2008": 1158777,
+      "2009": 930036,
+      "2010": 903691,
+      "2011": 766366,
+      "2012": 731389,
+      "2013": 599327,
+      "2014": 562888,
+      "2015": 283886
+    }
+  },
+  "h2": {
+    "analysis_unit": "user",
+    "feature_names": [
+      "log_rating_count",
+      "rating_mean",
+      "rating_std",
+      "share_rating_ge_4",
+      "genre_share__Action",
+      "genre_share__Adventure",
+      "genre_share__Animation",
+      "genre_share__Children",
+      "genre_share__Comedy",
+      "genre_share__Crime",
+      "genre_share__Documentary",
+      "genre_share__Drama",
+      "genre_share__Fantasy",
+      "genre_share__Film-Noir",
+      "genre_share__Horror",
+      "genre_share__IMAX",
+      "genre_share__Musical",
+      "genre_share__Mystery",
+      "genre_share__Romance",
+      "genre_share__Sci-Fi",
+      "genre_share__Thriller",
+      "genre_share__Unclassified",
+      "genre_share__War",
+      "genre_share__Western"
+    ],
+    "user_count": 138493,
+    "candidate_k_results": [
+      {
+        "k": 2,
+        "sampled_silhouette": 0.11703210324048996,
+        "sampled_inertia": 539797.25
+      },
+      {
+        "k": 3,
+        "sampled_silhouette": 0.11479402333498001,
+        "sampled_inertia": 491194.9375
+      },
+      {
+        "k": 4,
+        "sampled_silhouette": 0.0896395668387413,
+        "sampled_inertia": 467618.0625
+      }
+    ],
+    "selected_k_for_preview": 2,
+    "silhouette_full_fit_sampled_2000": 0.11038989573717117,
+    "cluster_profiles": [
+      {
+        "cluster": 0,
+        "users": 49938,
+        "median_rating_events": 65.0,
+        "mean_rating": 3.592977582770099,
+        "mean_rating_std": 0.9680467156841798,
+        "share_rating_ge_4": 0.5364107701222054,
+        "top_genres_by_share": "Comedy, Drama, Adventure"
+      },
+      {
+        "cluster": 1,
+        "users": 88555,
+        "median_rating_events": 69.0,
+        "mean_rating": 3.646512214358972,
+        "mean_rating_std": 0.9296814998678322,
+        "share_rating_ge_4": 0.5566334348423011,
+        "top_genres_by_share": "Drama, Comedy, Thriller"
+      }
+    ],
+    "elapsed_seconds": 66.87165091698989,
+    "random_seed": 544
+  },
+  "h3": {
+    "split_cutoff_utc": "2010-01-01",
+    "split_rule": "Train before 2010-01-01 UTC; test on/after 2010-01-01 UTC",
+    "split_counts": {
+      "train_events": 16152716,
+      "test_events": 3847547,
+      "first_rating_date": "1995-01-09",
+      "last_rating_date": "2015-03-31"
+    },
+    "baselines": [
+      {
+        "baseline": "training global mean",
+        "test_events": 3847547,
+        "RMSE": 1.0194045654394803,
+        "MAE": 0.7898639507211206,
+        "cold_start_fallback_events": 0
+      },
+      {
+        "baseline": "training movie mean (global fallback)",
+        "test_events": 3847547,
+        "RMSE": 0.9459729591558947,
+        "MAE": 0.7188929645470784,
+        "cold_start_fallback_events": 588406
+      }
+    ],
+    "test_movie_cold_start_fallback_events": 588406,
+    "elapsed_seconds": 68.11626591696404,
+    "baseline_query_seconds": 65.1226983750239,
+    "feature_timing_rule": "All baseline means computed from pre-cutoff training events only"
+  }
+}

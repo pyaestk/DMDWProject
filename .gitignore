@@ -1,0 +1,10 @@
+# Original MovieLens distribution; keep locally and obtain from GroupLens.
+/ml-20m/
+
+# Generated SQLite staging and warehouse databases, including WAL sidecars.
+/data/warehouse/*.sqlite
+/data/warehouse/*.sqlite-*
+
+# Interrupted audit checkpoints are resumable but are not needed after the
+# completed JSON result has been written.
+/outputs/source_audit/*.jsonl

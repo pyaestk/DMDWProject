@@ -1,0 +1,175 @@
+{
+  "runId": 1,
+  "status": "succeeded",
+  "startedAtUtc": "2026-09-28T14:51:10.046666+00:00",
+  "completedAtUtc": "2026-09-28T15:00:23.703730+00:00",
+  "database": "data/warehouse/movie_preference.sqlite",
+  "inputs": {
+    "movies.csv": {
+      "path": "ml-20m/movies.csv",
+      "bytes": 1397542,
+      "sha256": "eed80dd12706c10362fea572a248f625cee3cfd3dba05086158314ac69d78fac"
+    },
+    "links.csv": {
+      "path": "ml-20m/links.csv",
+      "bytes": 570090,
+      "sha256": "5c8826f9523d6d004046ef579d42b655c58f7c5d55a868913180cf11e3e31c93"
+    },
+    "ratings.csv": {
+      "path": "ml-20m/ratings.csv",
+      "bytes": 533444411,
+      "sha256": "784e85369bbdbbb32e54cbec653a79d087ae1525ffbc5b875de952b72316c00e"
+    },
+    "tags.csv": {
+      "path": "ml-20m/tags.csv",
+      "bytes": 16603996,
+      "sha256": "a87c2a5280c62a7799b786889c1f85a83b17584bb98d58262ad8c6f35ac081b2"
+    },
+    "genome-tags.csv": {
+      "path": "ml-20m/genome-tags.csv",
+      "bytes": 18103,
+      "sha256": "c84bf1e2addbf38432426a2bb2a117a59d76c0873fc875fe8764e92842fd3bfb"
+    },
+    "genome-scores.csv": {
+      "path": "ml-20m/genome-scores.csv",
+      "bytes": 323544381,
+      "sha256": "a44d34ea7881756385096f6b58f768101c86b516761acfc737f246043b4bb25d"
+    },
+    "wikidata_audit.json": {
+      "path": "outputs/source_audit/wikidata_match_full_catalog_2026-09-28.json",
+      "bytes": 26163520,
+      "sha256": "3845ce8ac36238164e5b94d424033ba1ec6a3e95e878836a526b6c65e18c0e0c"
+    }
+  },
+  "wikidataMatchSummary": {
+    "sourceRows": 27278,
+    "acceptedRows": 27278,
+    "rejectedRows": 0,
+    "exactMatches": 26263,
+    "unmatchedRows": 981,
+    "ambiguousRows": 34,
+    "matchRate": 0.9628,
+    "uniqueWikidataQids": 26262,
+    "duplicateQidCount": 1,
+    "attributeCoverageAmongMatched": {
+      "releaseDates": 26003,
+      "languages": 25317,
+      "directors": 25900,
+      "runtimes": 24132,
+      "countries": 26232,
+      "genres": 25598
+    },
+    "attributeCoverageRateAmongMatched": {
+      "releaseDates": 0.9901,
+      "languages": 0.964,
+      "directors": 0.9862,
+      "runtimes": 0.9189,
+      "countries": 0.9988,
+      "genres": 0.9747
+    },
+    "retrievedOn": "2026-09-28",
+    "loadedRows": 26263
+  },
+  "counts": {
+    "stg_movie": 27278,
+    "stg_link": 27278,
+    "stg_rating": 20000263,
+    "stg_user_tag": 465564,
+    "stg_genome_tag": 1128,
+    "stg_genome_score": 11709768,
+    "stg_wikidata_movie": 27278,
+    "dim_user": 138493,
+    "dim_movie": 27278,
+    "dim_date": 6911,
+    "dim_time": 86400,
+    "dim_genre": 539,
+    "dim_user_tag": 35169,
+    "dim_genome_tag": 1128,
+    "fact_rating": 20000263,
+    "fact_tag": 465557,
+    "fact_genome_score": 11709768,
+    "dim_language": 221,
+    "dim_country": 148,
+    "dim_person": 10939,
+    "bridge_movie_genre": 114087,
+    "bridge_movie_language": 28310,
+    "bridge_movie_country": 33519,
+    "bridge_movie_director": 28407,
+    "etl_quality_issue": 1022,
+    "etl_table_audit": 7
+  },
+  "quality": {
+    "foreignKeyViolationsSample": [],
+    "foreignKeyViolationCount": 0,
+    "ratingsOutsideRange": 0,
+    "genomeScoresOutsideRange": 0,
+    "moviesWithoutCurrentVersion": 0,
+    "wikidataAmbiguousNotLoadedAsQid": 0
+  },
+  "tableAudit": [
+    {
+      "tableName": "Wikidata",
+      "sourceRows": 27278,
+      "acceptedRows": 27278,
+      "rejectedRows": 0,
+      "duplicateRows": 1,
+      "unmatchedRows": 1015,
+      "loadedRows": 26263
+    },
+    {
+      "tableName": "genome-scores.csv",
+      "sourceRows": 11709768,
+      "acceptedRows": 11709768,
+      "rejectedRows": 0,
+      "duplicateRows": 0,
+      "unmatchedRows": 0,
+      "loadedRows": 11709768
+    },
+    {
+      "tableName": "genome-tags.csv",
+      "sourceRows": 1128,
+      "acceptedRows": 1128,
+      "rejectedRows": 0,
+      "duplicateRows": 0,
+      "unmatchedRows": 0,
+      "loadedRows": 1128
+    },
+    {
+      "tableName": "links.csv",
+      "sourceRows": 27278,
+      "acceptedRows": 27278,
+      "rejectedRows": 0,
+      "duplicateRows": 0,
+      "unmatchedRows": 0,
+      "loadedRows": 27278
+    },
+    {
+      "tableName": "movies.csv",
+      "sourceRows": 27278,
+      "acceptedRows": 27278,
+      "rejectedRows": 0,
+      "duplicateRows": 0,
+      "unmatchedRows": 0,
+      "loadedRows": 27278
+    },
+    {
+      "tableName": "ratings.csv",
+      "sourceRows": 20000263,
+      "acceptedRows": 20000263,
+      "rejectedRows": 0,
+      "duplicateRows": 0,
+      "unmatchedRows": 0,
+      "loadedRows": 20000263
+    },
+    {
+      "tableName": "tags.csv",
+      "sourceRows": 465564,
+      "acceptedRows": 465557,
+      "rejectedRows": 7,
+      "duplicateRows": 0,
+      "unmatchedRows": 0,
+      "loadedRows": 465557
+    }
+  ],
+  "databaseBytes": 5700124672
+}
